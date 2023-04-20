@@ -42,5 +42,3 @@ if(quite == "y"):
     print("This is your list of contacts: ", contacts)
 else:
     start()
-
-# start()
