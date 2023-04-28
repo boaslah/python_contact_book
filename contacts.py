@@ -1,8 +1,10 @@
-contacts = []
-quite = ''
+contacts = {}
+quit = ''
+
+print(type(quit))
 
 def start():
-    global quite
+    global quit
     action = input("Please enter the action you want to perform: ").lower()
     if(action == "delete"):
         delete()
@@ -11,7 +13,7 @@ def start():
     elif(action == "list"):
         listAll()
     else:
-        quite = input("Do you want to quite the program? Type 'y' for YES or 'n' fro NO: ").lower()
+        quit = input("Do you want to quit the program? Type 'y' for YES or 'n' fro NO: ").lower()
 
 
 
@@ -38,7 +40,7 @@ def listAll():
     print(contacts)
     start()
 
-if(quite == "y"):
+if(quit == "y"):
     print("This is your list of contacts: ", contacts)
 else:
     start()
