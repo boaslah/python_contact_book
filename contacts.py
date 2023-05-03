@@ -1,19 +1,17 @@
-contacts = {}
+contacts = []
 quit = ''
-
-print(type(quit))
 
 def start():
     global quit
-    action = input("Please enter the action you want to perform: ").lower()
+    action = input("Enter 'add' to add contacts\nEnter 'delete' to delete contacts\nEnter 'list' to list contacts\nEnter 'edit' to edit contacts\nPlease enter the action you want to perform: ").lower()
     if(action == "delete"):
         delete()
     elif(action == "add"):
         add()
     elif(action == "list"):
         listAll()
-    else:
-        quit = input("Do you want to quit the program? Type 'y' for YES or 'n' fro NO: ").lower()
+    elif(action == "edit"):
+        update()
 
 
 
@@ -36,9 +34,21 @@ def delete():
             break
     start()
 
-def listAll():
-    print(contacts)
+def update():
+    name = input("Please enter the name of contact to edit: ")
+    number = input("Please enter the new contact: ")
+    for index, i in enumerate(contacts):
+        if(list(i.keys())[0] == name):
+            contacts[index][name] = number
+            break
     start()
+
+def listAll():
+    print("All your contacts: ", contacts)
+    start()
+
+start()
+quit = input("Do you want to quit the program? Type 'y' for YES or 'n' fro NO: ").lower()
 
 if(quit == "y"):
     print("This is your list of contacts: ", contacts)
